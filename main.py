@@ -6,7 +6,6 @@ import sqlite3
 import yfinance as yf
 from datetime import datetime
 
-# Server setup
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
 intents = discord.Intents.all()
@@ -175,11 +174,5 @@ async def ranking(ctx):
     for user in all_user.items():
         total_return_percentage = (user[1]-1000000)/1000000*100
         await ctx.send(str(rank) +" - " + str(bot.get_user(user[0])) + ": $" + str(user[1]) + ". Percentage returns: " + str(total_return_percentage) + "%.")
-
-'''
-# Compare with major indices
-@bot.command()
-async def returns(ctx, arg1):
-'''
 
 bot.run(token)
